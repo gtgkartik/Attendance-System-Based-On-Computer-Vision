@@ -1,6 +1,6 @@
 import {initializeApp} from "firebase/app"
 import {
-    getFirestore, collection, getDocs, 
+    getFirestore, collection, getDocs, updateDoc 
 } from "firebase/firestore"
 
 import {getDatabase, ref , child, onValue, get} from "firebase/database"
@@ -64,6 +64,8 @@ const firebaseConfig = {
 
     //FireBase Auth
     const auth = getAuth();
+
+
 
 
 

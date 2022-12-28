@@ -35,7 +35,8 @@
   <nav class="navbar bg-light">
     <div class="container-fluid">
       <span class="navbar-brand mb-0 h1 heading"><p class="fs-3">Welcome, Professor</p></span>
-      
+      <button type="button" class="btn btn-warning" id="start">Warning</button>
+      <button type="button" class="btn btn-warning" id = "stop">Warning</button>
     </div>
   </nav>
   <div class="container">
@@ -87,8 +88,48 @@
   const app = initializeApp(firebaseConfig);
      const db = getFirestore();
   import {
-    getFirestore, doc, getDocs, getDoc, onSnapshot, collection
+    getFirestore, doc, getDocs, getDoc, onSnapshot, collection, updateDoc
   } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js"
+
+      //buttons
+      const start = document.getElementById("start")
+    const stop = document.getElementById("stop")
+
+    start.addEventListener("click" , (e)=>{
+      e.preventDefault();
+      
+      const docRef = doc(db, "Check" , "check_it")
+      const data = {
+        temp: true 
+            };
+
+            updateDoc(docRef, data)
+.then(docRef => {
+    console.log("start");
+})
+.catch(error => {
+    console.log(error);
+})
+    })
+
+    stop.addEventListener("click" , (e)=>{
+      e.preventDefault();
+      
+      const docRef = doc(db, "Check" , "check_it")
+      const data = {
+        temp: false
+            };
+
+            updateDoc(docRef, data)
+.then(docRef => {
+    console.log("stop");
+})
+.catch(error => {
+    console.log(error);
+})
+    })
+
+
 
    var stNo = 0;
     var tbody = document.getElementById("customtableID")
