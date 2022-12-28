@@ -24,7 +24,7 @@
 <body>
     <!-- As a link -->
 <nav class="navbar bg-light" style="padding: 0;">
-    <div class="container-fluid bg-dark">
+    <div class="container-fluid bg-dark ">
       <a class="navbar-brand "  href="#"> <p class="fs-1 text-white">Attendance AI</p></a>
       <button class="btn btn-light" onclick="loginPage() " type="button">Log Out</button>
   
@@ -33,10 +33,10 @@
   
   <!-- As a heading -->
   <nav class="navbar bg-light">
-    <div class="container-fluid">
+    <div class="flex">
       <span class="navbar-brand mb-0 h1 heading"><p class="fs-3">Welcome, Professor</p></span>
-      <button type="button" class="btn btn-warning" id="start">Warning</button>
-      <button type="button" class="btn btn-warning" id = "stop">Warning</button>
+      <button type="button" class="btn btn-dark" id="start">Start</button>
+      <button type="button" class="btn btn-dark" id = "stop">Stop</button>
     </div>
   </nav>
   <div class="container">
@@ -97,7 +97,7 @@
 
     start.addEventListener("click" , (e)=>{
       e.preventDefault();
-      
+      alert("Attendance Started")
       const docRef = doc(db, "Check" , "check_it")
       const data = {
         temp: true 
@@ -114,7 +114,7 @@
 
     stop.addEventListener("click" , (e)=>{
       e.preventDefault();
-      
+      alert("Attendace Stopped")
       const docRef = doc(db, "Check" , "check_it")
       const data = {
         temp: false
